@@ -1,0 +1,94 @@
+.notification {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 5000;
+  width: min(360px, calc(100vw - 36px));
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(15, 23, 42, 0.94);
+  color: #ffffff;
+  box-shadow: 0 18px 34px rgba(2, 6, 23, 0.26);
+  backdrop-filter: blur(14px);
+  font-weight: 700;
+  line-height: 1.35;
+  overflow: hidden;
+}
+
+.notification-message {
+  flex: 1;
+}
+
+.notification button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.notification button:hover {
+  opacity: 1;
+}
+
+.notification-success {
+  border-left: 5px solid #22c55e;
+}
+
+.notification-error {
+  border-left: 5px solid #ef4444;
+}
+
+.notification-info {
+  border-left: 5px solid #38bdf8;
+}
+
+.notification-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.68);
+  transform-origin: left center;
+  animation-name: notification-countdown;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.notification-success .notification-progress {
+  background: #22c55e;
+}
+
+.notification-error .notification-progress {
+  background: #ef4444;
+}
+
+.notification-info .notification-progress {
+  background: #38bdf8;
+}
+
+@keyframes notification-countdown {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .notification {
+    top: 12px;
+    right: 12px;
+    width: calc(100vw - 24px);
+  }
+}
